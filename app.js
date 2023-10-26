@@ -32,7 +32,8 @@ app.get("/oembed", (req, res) => {
     "thumbnail_width": 1280,
     "thumbnail_height": 720,
   }
-  res.json(response);
+  res.writeHead(200, {"Content-Type": "application/json"});
+  res.end(JSON.stringify(response));
 });
 
 app.listen(PORT, () => {
