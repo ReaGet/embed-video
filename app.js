@@ -18,7 +18,7 @@ app.get("/ifr", (req, res) => {
   res.sendFile(path.join(__dirname, "/public/embed.html"));
 });
 
-app.get("/api", (req, res) => {
+app.get("/oembed", (req, res) => {
   const response = {
     "version": "1.0",
     "provider_url": "https://embed-vid2.onrender.com/",
@@ -32,7 +32,6 @@ app.get("/api", (req, res) => {
     "thumbnail_width": 1280,
     "thumbnail_height": 720,
   }
-
   res.json(response);
 });
 
