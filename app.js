@@ -25,7 +25,7 @@ app.get("/oembed", (req, res) => {
     "provider_name": "Express",
     "type": "video",
     "title": "Bg video",
-    "html": "<iframe src='https://embed-vid2.onrender.com/ifr' style='margin: 0; padding: 0;' frameborder='0' scrolling='no' width='1280' height='720' allowfullscreen></iframe>",
+    "html": "<iframe src='https://embed-vid2.onrender.com/ifr' style='margin: 0; padding: 0;' frameborder='0' scrolling='no' width='1280' height='720' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' allowfullscreen></iframe>",
     "width": 1280,
     "height": 720,
     "thumbnail_url": "https://embed-vid2.onrender.com/assets/poster.jpg",
