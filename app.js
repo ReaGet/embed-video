@@ -1,19 +1,21 @@
 import express from "express";
+import * as url from 'url';
 import * as path from "path";
 
-const __dirname = path.dirname(import.meta.url);
+const __dirname = url.fileURLToPath(new URL('.', import.meta.url));
 
 const PORT = 1234;
 const app = express();
 
-console.log(__dirname)
-
 app.use(express.json())
-app.use(express.static("public"));
-app.use(express.static(path.resolve(__dirname, "assets")));
+app.use(express.static(__dirname));
 
 app.get("/", (req, res) => {
-  res.sendFile("/public/index.html");
+  res.sendFile(path.join(__dirname, "/public/index.html"));
+});
+
+app.get("/ifr", (req, res) => {
+  res.sendFile(path.join(__dirname, "/public/embed.html"));
 });
 
 app.get("/api", (req, res) => {
@@ -23,9 +25,9 @@ app.get("/api", (req, res) => {
     "provider_name": "Express",
     "type": "video",
     "title": "Bg video",
-    "html": "<div style='position:relative;padding-bottom: calc(56.25%)'><iframe src='https://embed-vid2.onrender.com//assets/video.mp4' frameborder='0' scrolling='no' width='1280' height='720' style='position:absolute;top:0;left:0;' allowfullscreen></iframe></div>",
-    "width": 1920,
-    "height": 1080,
+    "html": "<iframe src='https://embed-vid2.onrender.com/ifr' style='margin: 0; padding: 0;' frameborder='0' scrolling='no' width='1280' height='720' allowfullscreen></iframe>",
+    "width": 1280,
+    "height": 720,
     "thumbnail_url": "https://embed-vid2.onrender.com/assets/poster.jpg",
     "thumbnail_width": 1280,
     "thumbnail_height": 720,
