@@ -32,7 +32,14 @@ app.get("/oembed", (req, res) => {
     "thumbnail_width": 1280,
     "thumbnail_height": 720,
   }
-  res.writeHead(200, {"Content-Type": "application/json"});
+  res.writeHead(200, {
+    "access-control-allow-headers": "Authorization,DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type",
+    "access-control-allow-methods": "GET, PUT, POST, DELETE, HEAD, OPTIONS, PATCH",
+    "access-control-allow-origin": "*",
+    "x-frame-options": "SAMEORIGIN",
+    "x-content-type-options": "nosniff",
+    "Content-Type": "application/json",
+  });
   res.end(JSON.stringify(response));
 });
 
